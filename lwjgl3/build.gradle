@@ -1,0 +1,21 @@
+plugins {
+    id 'application'
+}
+
+application {
+    mainClass = 'com.leore.dungeoncrawler.lwjgl3.Lwjgl3Launcher'
+}
+
+dependencies {
+    implementation project(':core')
+    implementation "com.badlogicgames.gdx:gdx-backend-lwjgl3:$gdxVersion"
+    implementation "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
+}
+
+// Copia os assets para a raiz do classpath ao rodar, para que Gdx.files.internal() encontre os arquivos.
+sourceSets.main.resources.srcDirs += [ "../assets" ]
+
+run {
+    workingDir = file("../assets")
+    workingDir.mkdirs()
+}

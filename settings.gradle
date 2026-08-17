@@ -1,0 +1,4 @@
+rootProject.name = 'dungeon-crawler'
+
+include 'core'
+include 'lwjgl3'
